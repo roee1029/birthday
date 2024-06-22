@@ -82,22 +82,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Existing code for template rendering
     const currentHour = new Date().getHours();
-    alert(currentHour)
     let template = '';
     let templateId = '';
 
-      if (currentHour <= 10) {
-          // Birthday template
-          template = `
-              <div class="container birthday">
-                  <h1>Happy Birthday!</h1>
-                  <p>המשחק יתחיל בשעה 10:00, תפתחי את הקישור שוב ב10:00</p>
-                  <img src="cake.png" alt="Cake">
-                  <img src="ballons.png" alt="Balloons">
-              </div>
-          `;
-          templateId = 'birthday';
-      }else if (currentHour >= 10 && currentHour <= 11) {
+    if (currentHour <= 10) {
+           // Birthday template
+           template = `
+               <div class="container birthday">
+                   <h1>Happy Birthday!</h1>
+                   <p>המשחק יתחיל בשעה 10:00, תפתחי את הקישור שוב ב10:00</p>
+                   <img src="cake.png" alt="Cake">
+                   <img src="ballons.png" alt="Balloons">
+               </div>
+           `;
+           templateId = 'birthday';
+    }else if (currentHour >= 10 && currentHour <= 12) {
         // Riddle 1 template
         template = `
             <div class="container card riddle">
@@ -108,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <input type="text" id="answerInput" placeholder="Enter your answer">
                         <button onclick="checkAnswer1('riddle1', 'breakfast')">Submit</button>
                     </div>
-                    <p> החידה הבאה נפתחת בשעה 11:00</p>
+                    <p> החידה הבאה נפתחת בשעה 12:00</p>
                     <p id="resultMessage"></p>
                     <p id="hintText" class="hint-text">רמז: עכשיו בוקר</p>
                     <p><span id="hintLink" class="hint-link" onclick="showHint()">Need a hint?</span></p>
@@ -117,37 +116,12 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
         templateId = 'riddle1';
         
-    } else if (currentHour >= 11 && currentHour < 13) {
-        // Riddle 2 template
-        template = `
-            <div class="container card riddle">
-                <div class="card-body">
-                    <h1>חידה מספר 2</h1>
-                    <p>Where puzzles abound and time ticks fast, what am I where brains are put to the test?"</p>
-                    <div class="answer-box">
-                        <input type="text" id="answerInput" placeholder="Enter your answer">
-                        <button onclick="checkAnswer2('riddle2', 'escape room')">Submit</button>
-                    </div>
-                    <p> החידה הבאה נפתחת בשעה 14:00</p>
-                    <p id="resultMessage"></p>
-                    <p id="hintText" class="hint-text">רמז: יש רק 60 דקות</p>
-                    <p><span id="hintLink" class="hint-link" onclick="showHint()">Need a hint?</span></p>
-                </div>
-            </div>
-        `;
-        templateId = 'riddle2';
-        
-        // Check if riddle 2 has been solved previously
-        const riddleSolved = JSON.parse(localStorage.getItem('riddle2Solved')) || false;
-        if (riddleSolved) {
-            displaySuccessMessage();
-        }
-    } else if (currentHour >= 18 && currentHour <= 21) {
+    }  else if (currentHour >= 18 && currentHour <= 21) {
         // Riddle 3 template
         template = `
             <div class="container card riddle">
                 <div class="card-body">
-                    <h1>חידה מספר 4</h1>
+                    <h1>חידה מספר 3</h1>
                     <p>What's the meal that ends the day, satisfying in every way?</p>
                     <div class="answer-box">
                         <input type="text" id="answerInput" placeholder="Enter your answer">
@@ -168,12 +142,12 @@ document.addEventListener("DOMContentLoaded", function() {
             displaySuccessMessage();
         }
     }
-    else if (currentHour >= 14 && currentHour < 17) {
-        // Riddle 4 template
+    else if (currentHour >= 12 && currentHour < 18) {
+        // Riddle 2 template
         template = `
             <div class="container card riddle">
                 <div class="card-body">
-                    <h1>חידה מספר 3</h1>
+                    <h1>חידה מספר 2</h1>
                     <p> run on four legs with a flowing mane, what am I that races on a track or on the plain?"</p>
                     <div class="answer-box">
                         <input type="text" id="answerInput" placeholder="Enter your answer">
@@ -210,27 +184,6 @@ document.addEventListener("DOMContentLoaded", function() {
     container.innerHTML = template;
     insertImages(templateId);
 });
-
-function checkAnswer2(riddleId, correctAnswer) {
-    const answerInput = document.getElementById('answerInput');
-    const answer = answerInput.value.trim().toLowerCase();
-
-    // Check if the answer is correct
-    if (answer === correctAnswer) {
-        // Store in local storage that the riddle has been solved
-        localStorage.setItem(`${riddleId}Solved`, true);
-        displaySuccessMessage('כל הכבוד! היעד הבא שלך: הרכבת 22, תל אביב. שעה - 13:00');
-    } else {
-        const resultMessage = document.getElementById('resultMessage');
-        if (resultMessage) {
-            resultMessage.textContent = "Try again!";
-            resultMessage.classList.remove('correct-answer');
-        }
-    }
-
-    // Clear the input after checking the answer
-    answerInput.value = '';
-}
 
 function checkAnswer1(riddleId, correctAnswer) {
     const answerInput = document.getElementById('answerInput');
