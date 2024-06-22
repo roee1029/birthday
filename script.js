@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Existing code for template rendering
     const currentHour = new Date().getHours();
+    alert(currentHour)
     let template = '';
     let templateId = '';
 
