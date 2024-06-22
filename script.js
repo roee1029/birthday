@@ -204,17 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
         templateId = 'summary';
-    } else {
-        // Default template if no specific condition is met
-        template = `
-            <div class="container night">
-                <h1>Good Night!</h1>
-                <p>It's time to rest. Tomorrow will be another amazing day!</p>
-                <img src="moon.png" alt="Moon" class="night-image">
-            </div>
-        `;
-        templateId = 'night';
-    }
+    } 
 
     container.innerHTML = template;
     insertImages(templateId);
