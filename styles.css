@@ -5,6 +5,7 @@ body {
     overflow: hidden;
     background-color: #f0f8ff;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -41,11 +42,14 @@ body {
 }
 
 .container {
+    position: relative;
+    z-index: 1;
     text-align: center;
     padding: 20px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Ensures centering */
 }
 
 .birthday, .riddle, .night {
@@ -74,4 +78,86 @@ body {
     color: blue;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.answer-box input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 60%;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.answer-box input[type="text"]:focus {
+    outline: none;
+    border-color: dodgerblue;
+}
+
+.answer-box button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.answer-box button:hover {
+    background-color: royalblue;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 40px); /* 20px padding on each side */
+    position: absolute;
+    padding: 0 20px; /* 20px padding on each side */
+    box-sizing: border-box;
+    z-index: 0;
+}
+
+.image-container.top {
+    top: 20px; /* 20px from the top */
+}
+
+.image-container.bottom {
+    bottom: 20px; /* 20px from the bottom */
+}
+
+.tilted-image {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    transform-origin: center;
+}
+
+.tilted-image.left {
+    transform: rotate(-10deg);
+}
+
+.tilted-image.right {
+    transform: rotate(10deg);
+}
+
+/* Title container styles */
+.title-container {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.title-container h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Specific styles for the birthday template images */
+.birthday img {
+    width: 150px; /* Ensures both images are the same size */
+    height: auto;
 }
