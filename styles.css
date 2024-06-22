@@ -52,7 +52,7 @@ body {
     margin: auto; /* Ensures centering */
 }
 
-.birthday, .riddle, .night {
+.birthday, .riddle {
     text-align: center;
     padding: 20px;
 }
