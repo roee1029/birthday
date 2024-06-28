@@ -235,7 +235,7 @@ function checkAnswer4(riddleId, correctAnswer) {
     if (answer === correctAnswer) {
         // Store in local storage that the riddle has been solved
         localStorage.setItem(`${riddleId}Solved`, true);
-        displaySuccessMessage('כל הכבוד! היעד הבא שלך: חוות המאלף. שעה - 17:00');
+        displaySuccessMessage('כל הכבוד! היעד הבא שלך: חוות המאלף. שעה - 18:00');
     } else {
         const resultMessage = document.getElementById('resultMessage');
         if (resultMessage) {
