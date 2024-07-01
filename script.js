@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <input type="text" id="answerInput" placeholder="Enter your answer">
                         <button onclick="checkAnswer3('riddle3', 'dinner')">Submit</button>
                     </div>
-                    <p> החידה הבאה נפתחת בשעה 21:00</p>
+                    <p> החידה הבאה נפתחת בשעה 22:00</p>
                     <p id="resultMessage"></p>
                     <p id="hintText" class="hint-text">רמז: ארוחת ערב באנגלית</p>
                     <p><span id="hintLink" class="hint-link" onclick="showHint()">Need a hint?</span></p>
