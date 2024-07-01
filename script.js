@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
                </div>
            `;
            templateId = 'birthday';
-    }else if (currentHour >= 10 && currentHour <= 12) {
+    }else if (currentHour >= 10 && currentHour <= 13) {
         // Riddle 1 template
         template = `
             <div class="container card riddle">
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
         templateId = 'riddle1';
         
-    }  else if (currentHour >= 18 && currentHour <= 21) {
+    }  else if (currentHour >= 18 && currentHour <= 22) {
         // Riddle 3 template
         template = `
             <div class="container card riddle">
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
             displaySuccessMessage();
         }
     }
-    else if (currentHour >= 12 && currentHour < 18) {
+    else if (currentHour >= 13 && currentHour < 18) {
         // Riddle 2 template
         template = `
             <div class="container card riddle">
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
             displaySuccessMessage();
         }
     }
-    else if (currentHour >= 21) {
+    else if (currentHour >= 22) {
         // Summary and gift presentation template
         template = `
             <div class="container summary">
