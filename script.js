@@ -214,7 +214,7 @@ function checkAnswer3(riddleId, correctAnswer) {
     if (answer === correctAnswer) {
         // Store in local storage that the riddle has been solved
         localStorage.setItem(`${riddleId}Solved`, true);
-        displaySuccessMessage('כל הכבוד! היעד הבא שלך: הטיילת 6, ראשון לציון. שעה - 21:00');
+        displaySuccessMessage('כל הכבוד! היעד הבא שלך: הטיילת 6, ראשון לציון. שעה - 22:00');
     } else {
         const resultMessage = document.getElementById('resultMessage');
         if (resultMessage) {
